@@ -1,6 +1,6 @@
 CC = "g++"
 PROJECT =  main	 
-SRC = module0.cpp main.cpp
+SRC = module0.cpp main.cpp module1.cpp vp.cpp
 
 LIBS = `pkg-config opencv4 --cflags --libs`
 																		

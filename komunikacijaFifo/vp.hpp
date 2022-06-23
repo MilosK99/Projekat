@@ -14,7 +14,7 @@ namespace comm
         public:
             SC_HAS_PROCESS(vp);
 
-            vp(sc_module_name);
+            vp(sc_module_name, int);
 
         protected:
             sc_fifo <int> f0;

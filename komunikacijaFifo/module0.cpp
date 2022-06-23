@@ -16,7 +16,7 @@ namespace comm
         int v = 5;
         pfifo -> write(v);
 
-        cout << v;
+        //cout << pfifo -> num_available();
         
         //vector<int> v {7, 5, 1, 3, 12};
 
