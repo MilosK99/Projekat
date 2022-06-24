@@ -14,8 +14,10 @@ void module0::process()
         
     vector<int> v {7, 5, 1, 3, 4, 5, 3, 3, 4};
 
-    for(int i = 0; i <= v.size(); i++)
+    for(int i = 0; i < v.size(); i++)
     {
+        
         pfifo -> write(v[i]);
+
     }
 }

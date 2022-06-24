@@ -17,29 +17,20 @@ void module1::process()
     wait(1, SC_NS);
 
 
-    if(pfifo -> num_available())
-    {
+    //if(pfifo -> num_available())
+    //{
         
         vector<int> v;
 
-        //while(1)
-        //{
-        //    if(pfifo -> num_available())
-        //    {
-        //        vector <int> v = pfifo -> read();
-        //        cout << v << ' ';
-        //    }
-        //        wait(1, SC_NS);
+        int n = pfifo -> num_available();
 
-        //}
-        for(int i = 0; i <= pfifo -> num_available(); i++)
-        //for(int i = 0; i < 5; ++i)
+        for(int i = 0; i <= n; i++)
         {
+
             v.push_back(i);
-            
             pfifo -> read(v[i]);
-            //v.push_back(pfifo -> read());
             cout << v[i] << ' ';
+
         }
-    }
+    //}
 }
