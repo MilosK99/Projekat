@@ -5,21 +5,18 @@
 #include "module0.hpp"
 #include "module1.hpp"
 
-namespace comm
+using namespace sc_core;
+
+SC_MODULE(vp)
 {
-    using namespace sc_core;
+    public:
+        SC_HAS_PROCESS(vp);
 
-    SC_MODULE(vp)
-    {
-        public:
-            SC_HAS_PROCESS(vp);
+        vp(sc_module_name, int);
 
-            vp(sc_module_name, int);
-
-        protected:
-            sc_fifo <int> f0;
-            module0 m0;
-            module1 m1;
-    };
-}
+    protected:
+        sc_fifo <int> f0;
+        module0 m0;
+        module1 m1;
+};
 #endif

@@ -4,21 +4,19 @@
 #include <systemc>
 #include <vector>
 
-namespace comm
+using namespace sc_core;
+
+SC_MODULE(module1)
 {
-    using namespace sc_core;
+    public:
+        SC_HAS_PROCESS(module1);
 
-    SC_MODULE(module1)
-    {
-        public:
-            SC_HAS_PROCESS(module1);
+        module1(sc_core::sc_module_name);
 
-            module1(sc_core::sc_module_name);
-
-            sc_fifo_in <int> pfifo;
+        //sc_fifo_in <int> pfifo;
+        sc_port <sc_fifo_in_if<int>> pfifo;
             
-        protected:
-            void process();
-    };
-}
+    protected:
+        void process();
+};
 #endif

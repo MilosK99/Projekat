@@ -6,11 +6,11 @@
 
 int sc_main(int argc, char* argv[])
 {
-    //comm::module0 module0("modul0");
-
-    //test
+    //module0 module0("modul0");
     
-    comm::vp vp("Virtual Platform", 1);
+    const int FIFO_SIZE = 20;
+    
+    vp vp("Virtual Platform", FIFO_SIZE);
     
     sc_start(200, sc_core::SC_NS);
 
