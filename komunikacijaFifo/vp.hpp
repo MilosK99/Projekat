@@ -2,6 +2,7 @@
 #define VP_HPP
 
 #include <systemc>
+#include "module.hpp"
 #include "module0.hpp"
 #include "module1.hpp"
 
