@@ -18,6 +18,7 @@ class module0 : public sc_core::sc_module
         sc_port <sc_fifo_out_if <int>> pfifo;
         module0(sc_core::sc_module_name name);
         ~module0();
+        
 
         tlm_utils::simple_target_socket <module0> module0_module_socket;
 
@@ -26,6 +27,5 @@ class module0 : public sc_core::sc_module
             void b_transport(pl_t&, sc_core::sc_time&);
             
             int control;
-            int i = 0;
 };
 #endif

@@ -3,8 +3,9 @@
 
 using namespace std;
 using namespace sc_core;
+using std::vector;
 
-//int control[256];
+vector<int> a;
 
 module0::module0(sc_module_name name) : sc_module(name)
 {
@@ -30,14 +31,12 @@ void module0::b_transport(pl_t& p1, sc_time& offset)
     switch(cmd)
     {
         case TLM_WRITE_COMMAND:
+
             control = *((int*)data);
+            a.push_back(control);
             cout << control << ' '; 
-
-
-            //control[i] = *((int*)data);
-            //i++;
+            cout << endl;
             p1.set_response_status(TLM_OK_RESPONSE);
-            //cout << control[i] << endl;
         break;
 
         case TLM_READ_COMMAND: 
@@ -52,11 +51,6 @@ void module0::b_transport(pl_t& p1, sc_time& offset)
 
 void module0::process()
 {
-    //vector <int> v = control;
-    //int n = control;
-
-    //for(int i = 0; i < ; i++)
-    //{
-        //pfifo -> write(control);
-    //}
+    for(int i = 0; i < a.size(); i++)
+        pfifo -> write(a[i]);
 }
