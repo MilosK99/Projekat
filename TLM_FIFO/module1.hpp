@@ -15,8 +15,10 @@ SC_MODULE(module1)
 
         //sc_fifo_in <int> pfifo;
         sc_port <sc_fifo_in_if<int>> pfifo;
+        sc_port <sc_fifo_out_if <int>> nfifo;
             
     protected:
-        void process();
+        void citanje();
+        void upisivanje();
 };
 #endif

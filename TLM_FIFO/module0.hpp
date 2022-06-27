@@ -16,6 +16,7 @@ class module0 : public sc_core::sc_module
     public:
         SC_HAS_PROCESS(module0);
         sc_port <sc_fifo_out_if <int>> pfifo;
+        sc_port <sc_fifo_in_if <int>> nfifo;
         module0(sc_core::sc_module_name name);
         ~module0();
         
@@ -23,7 +24,8 @@ class module0 : public sc_core::sc_module
         tlm_utils::simple_target_socket <module0> module0_module_socket;
 
     protected:
-            void process();
+            void upisivanje();
+            void citanje();
             void b_transport(pl_t&, sc_core::sc_time&);
             
             int control;

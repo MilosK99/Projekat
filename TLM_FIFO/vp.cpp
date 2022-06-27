@@ -1,17 +1,20 @@
 #include "vp.hpp"
 
-vp::vp(sc_core::sc_module_name name, int size) : sc_module(name),
-    inicijator("Module"),
-    cilj("Module0"), 
+vp::vp(sc_core::sc_module_name name, int size, int velicina) : sc_module(name),
+    m("Module"),
+    m0("Module0"), 
     m1("Module1"),
-    f0(size)
+    f0(size),
+    f1(velicina)
 
 {
     SC_REPORT_INFO("Virtual Platform", "Constructed.");
 
-    inicijator.module_module0_socket.bind(cilj.module0_module_socket);
-    cilj.pfifo.bind(f0);
+    m.module_module0_socket.bind(m0.module0_module_socket);
+    m0.pfifo.bind(f0);
     m1.pfifo.bind(f0);
+    m1.nfifo.bind(f1);
+    m0.nfifo.bind(f1);
 }
 
 vp::~vp()

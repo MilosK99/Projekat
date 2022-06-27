@@ -6,13 +6,15 @@ using namespace sc_core;
 using std::vector;
 
 vector<int> a;
+vector<int> b;
 
 module0::module0(sc_module_name name) : sc_module(name)
 {
     module0_module_socket.register_b_transport(this, &module0::b_transport);
 
     SC_REPORT_INFO("module0", "Constructed.");
-    SC_THREAD(process);
+    SC_THREAD(upisivanje);
+    SC_THREAD(citanje);
 }
 
 module0::~module0()
@@ -50,10 +52,23 @@ void module0::b_transport(pl_t& p1, sc_time& offset)
     }
 }
 
-void module0::process()
+void module0::upisivanje()
 {
     for(int i = 0; i < a.size(); i++)
+    {
         pfifo -> write(a[i]);
+    }
+}
 
+void module0::citanje()
+{
+    wait(1, SC_NS);
+    
+    int k = nfifo -> num_available();
 
+    for(int j = 0; j < k; j++)
+    {
+        b.push_back(nfifo -> read());
+        cout << b[j] << endl;
+    }
 }
