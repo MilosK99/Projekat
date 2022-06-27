@@ -40,6 +40,7 @@ void module0::b_transport(pl_t& p1, sc_time& offset)
         break;
 
         case TLM_READ_COMMAND: 
+        
         break;
 
         default:
@@ -53,4 +54,6 @@ void module0::process()
 {
     for(int i = 0; i < a.size(); i++)
         pfifo -> write(a[i]);
+
+
 }

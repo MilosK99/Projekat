@@ -23,9 +23,13 @@ void module1::process()
         for(int i = 0; i <= n; i++)
         {
 
-            v.push_back(i);
-            pfifo -> read(v[i]);
+            v.push_back(pfifo -> read());
+            //v.push_back(i);
+            //pfifo -> read(v[i]);
+    
             cout << v[i] << ' ';
 
         }
+
+        
 }
